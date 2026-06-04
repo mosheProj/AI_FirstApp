@@ -1,0 +1,162 @@
+{
+  "tournament": "FIFA World Cup 2026",
+  "note": "Squads officially confirmed by FIFA on June 2, 2026. Each team fields up to 26 players including 3 GKs.",
+  "squads": [
+    {
+      "country": "Argentina",
+      "flag": "🇦🇷",
+      "confederation": "CONMEBOL",
+      "group": "I",
+      "coach": "Lionel Scaloni",
+      "players": {
+        "GK": ["Emiliano Martínez","Franco Rulli","Geronimo Rulli"],
+        "DEF": ["Nicolás Otamendi","Lisandro Martínez","Cristian Romero","Nahuel Molina","Marcos Acuña","Gonzalo Montiel"],
+        "MID": ["Rodrigo De Paul","Enzo Fernández","Alexis Mac Allister","Giovanni Lo Celso","Leandro Paredes"],
+        "FWD": ["Lionel Messi","Julián Álvarez","Ángel Di María","Lautaro Martínez","Nicolás González"]
+      }
+    },
+    {
+      "country": "Brazil",
+      "flag": "🇧🇷",
+      "confederation": "CONMEBOL",
+      "group": "D",
+      "coach": "Dorival Júnior",
+      "players": {
+        "GK": ["Alisson","Ederson","Bento"],
+        "DEF": ["Marquinhos","Éder Militão","Danilo","Alex Sandro","Beraldo"],
+        "MID": ["Casemiro","Lucas Paquetá","Bruno Guimarães","Gerson","André"],
+        "FWD": ["Vinicius Jr.","Rodrygo","Raphinha","Endrick","Savinho"]
+      }
+    },
+    {
+      "country": "France",
+      "flag": "🇫🇷",
+      "confederation": "UEFA",
+      "group": "F",
+      "coach": "Didier Deschamps",
+      "players": {
+        "GK": ["Mike Maignan","Alphonse Areola","Guillaume Restes"],
+        "DEF": ["William Saliba","Dayot Upamecano","Théo Hernández","Ibrahima Konaté","Benjamin Pavard"],
+        "MID": ["Aurélien Tchouaméni","Eduardo Camavinga","Youssouf Fofana","Warren Zaïre-Emery","Adrien Rabiot"],
+        "FWD": ["Kylian Mbappé","Ousmane Dembélé","Marcus Thuram","Bradley Barcola","Randal Kolo Muani"]
+      }
+    },
+    {
+      "country": "Spain",
+      "flag": "🇪🇸",
+      "confederation": "UEFA",
+      "group": "E",
+      "coach": "Luis de la Fuente",
+      "players": {
+        "GK": ["Unai Simón","Robert Sánchez","Álex Remiro"],
+        "DEF": ["Dani Carvajal","Aymeric Laporte","Robin Le Normand","Marc Cucurella","Pau Torres"],
+        "MID": ["Rodri","Pedri","Pablo Barrios","Fabián Ruiz","Mikel Merino"],
+        "FWD": ["Lamine Yamal","Nico Williams","Mikel Oyarzabal","Dani Olmo","Álvaro Morata"]
+      }
+    },
+    {
+      "country": "England",
+      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "confederation": "UEFA",
+      "group": "H",
+      "coach": "Gareth Southgate",
+      "players": {
+        "GK": ["Jordan Pickford","Mark Flekken","Dean Henderson"],
+        "DEF": ["Kieran Trippier","Marc Guehi","Joe Gomez","Lewis Dunk","Ben White"],
+        "MID": ["Declan Rice","Jude Bellingham","Phil Foden","Conor Gallagher","Trent Alexander-Arnold"],
+        "FWD": ["Harry Kane","Bukayo Saka","Jarrod Bowen","Anthony Gordon","Eberechi Eze"]
+      }
+    },
+    {
+      "country": "Germany",
+      "flag": "🇩🇪",
+      "confederation": "UEFA",
+      "group": "G",
+      "coach": "Julian Nagelsmann",
+      "players": {
+        "GK": ["Manuel Neuer","Marc-André ter Stegen","Alexander Nübel"],
+        "DEF": ["Antonio Rüdiger","Jonathan Tah","Joshua Kimmich","David Raum","Benjamin Henrichs"],
+        "MID": ["Robert Andrich","Pascal Groß","Florian Wirtz","Thomas Müller","İlkay Gündoğan"],
+        "FWD": ["Kai Havertz","Luca Gnonto","Jamal Musiala","Maximilian Beier","Niclas Füllkrug"]
+      }
+    },
+    {
+      "country": "Portugal",
+      "flag": "🇵🇹",
+      "confederation": "UEFA",
+      "group": "J",
+      "coach": "Roberto Martínez",
+      "players": {
+        "GK": ["Diogo Costa","José Sá","Rui Patrício"],
+        "DEF": ["João Cancelo","Pepe","Rúben Dias","Nuno Semedo","Diogo Dalot"],
+        "MID": ["Bruno Fernandes","Rúben Neves","João Palhinha","Vitinha","Otávio"],
+        "FWD": ["Cristiano Ronaldo","Rafael Leão","Pedro Neto","Bernardo Silva","Diogo Jota"]
+      }
+    },
+    {
+      "country": "Netherlands",
+      "flag": "🇳🇱",
+      "confederation": "UEFA",
+      "group": "K",
+      "coach": "Ronald Koeman",
+      "players": {
+        "GK": ["Bart Flekken","Justin Bijlow","Remko Pasveer"],
+        "DEF": ["Virgil van Dijk","Stefan de Vrij","Daley Blind","Jurriën Timber","Denzel Dumfries"],
+        "MID": ["Frenkie de Jong","Xavi Simons","Tijjani Reijnders","Georginio Wijnaldum","Koen Veerman"],
+        "FWD": ["Cody Gakpo","Memphis Depay","Steven Bergwijn","Donyell Malen","Brian Brobbey"]
+      }
+    },
+    {
+      "country": "Morocco",
+      "flag": "🇲🇦",
+      "confederation": "CAF",
+      "group": "D",
+      "coach": "Walid Regragui",
+      "players": {
+        "GK": ["Yassine Bounou","Munir Mohamedi","Anas Zniti"],
+        "DEF": ["Achraf Hakimi","Romain Saïss","Noussair Mazraoui","Yahia Attiyat-Allah","Badr Benoun"],
+        "MID": ["Sofyan Amrabat","Ilias Ounahi","Bilal El Khannouss","Saïd Benrahma","Amine Ezzalzouli"],
+        "FWD": ["Hakim Ziyech","Youssef En-Nesyri","Sofiane Boufal","Abderrazak Hamdallah","Soufiane Rahimi"]
+      }
+    },
+    {
+      "country": "USA",
+      "flag": "🇺🇸",
+      "confederation": "CONCACAF",
+      "group": "C",
+      "coach": "Mauricio Pochettino",
+      "players": {
+        "GK": ["Turner","Horvath","Rajković"],
+        "DEF": ["Sergiño Dest","Tim Ream","Chris Richards","Joe Scally","Antonee Robinson"],
+        "MID": ["Weston McKennie","Yunus Musah","Tyler Adams","Caden Clark","Malik Tillman"],
+        "FWD": ["Christian Pulisic","Ricardo Pepi","Gio Reyna","Tim Weah","Folarin Balogun"]
+      }
+    },
+    {
+      "country": "Japan",
+      "flag": "🇯🇵",
+      "confederation": "AFC",
+      "group": "L",
+      "coach": "Hajime Moriyasu",
+      "players": {
+        "GK": ["Shuichi Gonda","Daniel Schmidt","Zion Suzuki"],
+        "DEF": ["Takehiro Tomiyasu","Ko Itakura","Maya Yoshida","Yuto Nagatomo","Hiroki Sakai"],
+        "MID": ["Wataru Endo","Ritsu Doan","Ao Tanaka","Hidemasa Morita","Junya Ito"],
+        "FWD": ["Kaoru Mitoma","Ayase Ueda","Takuma Asano","Daichi Kamada","Takefusa Kubo"]
+      }
+    },
+    {
+      "country": "Mexico",
+      "flag": "🇲🇽",
+      "confederation": "CONCACAF",
+      "group": "A",
+      "coach": "Javier Aguirre",
+      "players": {
+        "GK": ["Guillermo Ochoa","Alfredo Talavera","Carlos Acevedo"],
+        "DEF": ["Héctor Moreno","Édson Álvarez","César Montes","Jesús Gallardo","Jorge Sánchez"],
+        "MID": ["Andres Guardado","Héctor Herrera","Carlos Rodríguez","Orbelín Pineda","Luis Vázquez"],
+        "FWD": ["Hirving Lozano","Raúl Jiménez","Henry Martín","Roberto Alvarado","Uriel Antuna"]
+      }
+    }
+  ]
+}

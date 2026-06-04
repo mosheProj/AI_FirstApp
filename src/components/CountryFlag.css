@@ -1,0 +1,59 @@
+.country-flag {
+  display: inline-block;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
+  vertical-align: middle;
+  background: var(--bg-elevated);
+  aspect-ratio: 3 / 2;
+  height: auto;
+}
+
+.country-flag--xs {
+  width: 20px;
+  height: 14px;
+}
+
+.country-flag--sm {
+  width: 32px;
+  height: 22px;
+}
+
+.country-flag--md {
+  width: 48px;
+  height: 32px;
+}
+
+.country-flag--lg {
+  width: 64px;
+  height: 43px;
+  border-radius: 6px;
+}
+
+.country-flag--xl {
+  width: 96px;
+  height: 64px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.country-flag--fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  font-size: 0.625rem;
+  font-weight: 700;
+}
+
+.country-flag--fallback.country-flag--md {
+  font-size: 0.75rem;
+}
+
+.country-flag--fallback.country-flag--lg,
+.country-flag--fallback.country-flag--xl {
+  font-size: 1rem;
+}

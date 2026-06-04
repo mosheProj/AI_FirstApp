@@ -1,0 +1,78 @@
+.group-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.25s;
+}
+
+.group-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow);
+}
+
+.group-header {
+  background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-card) 100%);
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.group-letter {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.group-teams {
+  list-style: none;
+  padding: 0.5rem 0;
+}
+
+.group-team {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.75rem 1.25rem;
+  transition: background 0.15s;
+}
+
+.group-team:hover {
+  background: var(--bg-card-hover);
+}
+
+.group-team-flag,
+.group-team .country-flag {
+  flex-shrink: 0;
+}
+
+.group-team-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.group-team-name {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.host-badge {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: var(--gold);
+  color: var(--bg-primary);
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+}
+
+.group-team-conf {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}

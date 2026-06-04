@@ -1,0 +1,126 @@
+{
+  "tournament": "FIFA World Cup 2026",
+  "dates": "June 11 – July 19, 2026",
+  "hosts": ["USA", "Canada", "Mexico"],
+  "total_teams": 48,
+  "total_groups": 12,
+  "groups": [
+    {
+      "group": "A",
+      "teams": [
+        {"name": "Mexico",       "confederation": "North America", "host": true,  "flag": "🇲🇽"},
+        {"name": "South Korea",  "confederation": "Asia",          "host": false, "flag": "🇰🇷"},
+        {"name": "South Africa", "confederation": "Africa",        "host": false, "flag": "🇿🇦"},
+        {"name": "Czechia",      "confederation": "Europe",        "host": false, "flag": "🇨🇿"}
+      ]
+    },
+    {
+      "group": "B",
+      "teams": [
+        {"name": "Canada",             "confederation": "North America", "host": true,  "flag": "🇨🇦"},
+        {"name": "Bosnia-Herzegovina", "confederation": "Europe",        "host": false, "flag": "🇧🇦"},
+        {"name": "Qatar",              "confederation": "Asia",          "host": false, "flag": "🇶🇦"},
+        {"name": "Switzerland",        "confederation": "Europe",        "host": false, "flag": "🇨🇭"}
+      ]
+    },
+    {
+      "group": "C",
+      "teams": [
+        {"name": "Brazil",   "confederation": "South America", "host": false, "flag": "🇧🇷"},
+        {"name": "Morocco",  "confederation": "Africa",        "host": false, "flag": "🇲🇦"},
+        {"name": "Haiti",    "confederation": "North America", "host": false, "flag": "🇭🇹"},
+        {"name": "Scotland", "confederation": "Europe",        "host": false, "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿"}
+      ]
+    },
+    {
+      "group": "D",
+      "teams": [
+        {"name": "USA",       "confederation": "North America", "host": true,  "flag": "🇺🇸"},
+        {"name": "Paraguay",  "confederation": "South America", "host": false, "flag": "🇵🇾"},
+        {"name": "Australia", "confederation": "Asia/Oceania",  "host": false, "flag": "🇦🇺"},
+        {"name": "Türkiye",   "confederation": "Europe",        "host": false, "flag": "🇹🇷"}
+      ]
+    },
+    {
+      "group": "E",
+      "teams": [
+        {"name": "Germany",      "confederation": "Europe",        "host": false, "flag": "🇩🇪"},
+        {"name": "Curaçao",      "confederation": "North America", "host": false, "flag": "🇨🇼"},
+        {"name": "Ivory Coast",  "confederation": "Africa",        "host": false, "flag": "🇨🇮"},
+        {"name": "Ecuador",      "confederation": "South America", "host": false, "flag": "🇪🇨"}
+      ]
+    },
+    {
+      "group": "F",
+      "teams": [
+        {"name": "Netherlands", "confederation": "Europe", "host": false, "flag": "🇳🇱"},
+        {"name": "Japan",       "confederation": "Asia",   "host": false, "flag": "🇯🇵"},
+        {"name": "Sweden",      "confederation": "Europe", "host": false, "flag": "🇸🇪"},
+        {"name": "Tunisia",     "confederation": "Africa", "host": false, "flag": "🇹🇳"}
+      ]
+    },
+    {
+      "group": "G",
+      "teams": [
+        {"name": "Belgium",     "confederation": "Europe",   "host": false, "flag": "🇧🇪"},
+        {"name": "Egypt",       "confederation": "Africa",   "host": false, "flag": "🇪🇬"},
+        {"name": "Iran",        "confederation": "Asia",     "host": false, "flag": "🇮🇷"},
+        {"name": "New Zealand", "confederation": "Oceania",  "host": false, "flag": "🇳🇿"}
+      ]
+    },
+    {
+      "group": "H",
+      "teams": [
+        {"name": "Spain",        "confederation": "Europe",        "host": false, "flag": "🇪🇸"},
+        {"name": "Cabo Verde",   "confederation": "Africa",        "host": false, "flag": "🇨🇻"},
+        {"name": "Saudi Arabia", "confederation": "Asia",          "host": false, "flag": "🇸🇦"},
+        {"name": "Uruguay",      "confederation": "South America", "host": false, "flag": "🇺🇾"}
+      ]
+    },
+    {
+      "group": "I",
+      "teams": [
+        {"name": "France",  "confederation": "Europe",        "host": false, "flag": "🇫🇷"},
+        {"name": "Senegal", "confederation": "Africa",        "host": false, "flag": "🇸🇳"},
+        {"name": "Iraq",    "confederation": "Asia",          "host": false, "flag": "🇮🇶"},
+        {"name": "Norway",  "confederation": "Europe",        "host": false, "flag": "🇳🇴"}
+      ]
+    },
+    {
+      "group": "J",
+      "teams": [
+        {"name": "Argentina", "confederation": "South America", "host": false, "flag": "🇦🇷"},
+        {"name": "Algeria",   "confederation": "Africa",        "host": false, "flag": "🇩🇿"},
+        {"name": "Austria",   "confederation": "Europe",        "host": false, "flag": "🇦🇹"},
+        {"name": "Jordan",    "confederation": "Asia",          "host": false, "flag": "🇯🇴"}
+      ]
+    },
+    {
+      "group": "K",
+      "teams": [
+        {"name": "Portugal",   "confederation": "Europe",        "host": false, "flag": "🇵🇹"},
+        {"name": "DR Congo",   "confederation": "Africa",        "host": false, "flag": "🇨🇩"},
+        {"name": "Uzbekistan", "confederation": "Asia",          "host": false, "flag": "🇺🇿"},
+        {"name": "Colombia",   "confederation": "South America", "host": false, "flag": "🇨🇴"}
+      ]
+    },
+    {
+      "group": "L",
+      "teams": [
+        {"name": "England", "confederation": "Europe",        "host": false, "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿"},
+        {"name": "Croatia", "confederation": "Europe",        "host": false, "flag": "🇭🇷"},
+        {"name": "Ghana",   "confederation": "Africa",        "host": false, "flag": "🇬🇭"},
+        {"name": "Panama",  "confederation": "North America", "host": false, "flag": "🇵🇦"}
+      ]
+    }
+  ],
+  "all_qualified_nations_by_confederation": {
+    "Europe":         ["Austria","Belgium","Bosnia-Herzegovina","Czechia","Croatia","England","France","Germany","Netherlands","Norway","Portugal","Scotland","Spain","Sweden","Switzerland","Türkiye"],
+    "South America":  ["Argentina","Brazil","Colombia","Ecuador","Paraguay","Uruguay"],
+    "Asia":           ["Australia","Iran","Japan","Jordan","Qatar","Saudi Arabia","South Korea","Uzbekistan"],
+    "Africa":         ["Algeria","Cabo Verde","DR Congo","Egypt","Ghana","Ivory Coast","Morocco","Senegal","South Africa","Tunisia"],
+    "North America":  ["Canada","Curaçao","Haiti","Mexico","Panama","USA"],
+    "Oceania":        ["New Zealand"],
+    "Middle East":    ["Iraq"]
+  }
+}

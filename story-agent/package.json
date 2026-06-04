@@ -1,0 +1,19 @@
+{
+  "name": "children-story-agent",
+  "version": "1.0.0",
+  "description": "LangChain agent that writes short happy children's stories",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "story": "node src/cli.js",
+    "start": "node src/cli.js"
+  },
+  "keywords": ["langchain", "openrouter", "children-stories", "agent"],
+  "license": "MIT",
+  "dependencies": {
+    "@langchain/core": "^1.1.48",
+    "@langchain/openrouter": "^0.3.0",
+    "dotenv": "^16.4.7",
+    "langchain": "^1.4.4"
+  }
+}
