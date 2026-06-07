@@ -8,7 +8,8 @@
     "start": "vite --open",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --open",
-    "story": "node story-agent/src/cli.js"
+    "story": "node story-agent/src/cli.js",
+    "travel": "node travel-agent/src/cli.js"
   },
   "dependencies": {
     "react": "^19.1.0",

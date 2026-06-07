@@ -1,0 +1,1 @@
+2026-06-07 10:55:51 | /create-skill  any time i write a prompt i want you to store it in a file call DeveloperPrompts.txt . each rpompt line in the file will have : 1. date and time . 2. prompt text DeveloperPrompts.txt . will be create foreach folder and will contain only the prompt for this specific folder
