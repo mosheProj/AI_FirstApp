@@ -4,6 +4,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeStory } from './agent.js';
 import {
+  CREATIVITY_LEVELS,
+  CREATIVITY_TEMPERATURES,
   DEFAULT_OPTIONS,
   ENDINGS,
   LENGTHS,
@@ -116,7 +118,9 @@ async function handleRequest(req, res) {
         storyType: STORY_TYPES,
         ending: ENDINGS,
         length: LENGTHS,
+        creativity: CREATIVITY_LEVELS,
       },
+      creativityTemperatures: CREATIVITY_TEMPERATURES,
     });
     return;
   }
@@ -128,6 +132,7 @@ async function handleRequest(req, res) {
       storyType: body.storyType,
       ending: body.ending,
       length: body.length,
+      creativity: body.creativity,
     });
     const story = await writeStory(subject, options);
 

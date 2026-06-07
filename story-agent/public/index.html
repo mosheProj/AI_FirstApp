@@ -12,101 +12,41 @@
         <div class="hero-badge">Ages 4–8</div>
         <h1>Story Teller</h1>
         <p class="hero-sub">
-          Pick a topic and a few options — we’ll write a short children’s story for you.
+          Chat with our story guide — answer a few questions and we’ll write a short children’s tale for you.
         </p>
       </header>
 
       <main class="layout">
-        <form id="story-form" class="card form-card" novalidate>
-          <section class="field">
-            <label for="subject">What is your story about?</label>
-            <p class="hint">Keep it short and fun — max 50 characters.</p>
-            <input
-              id="subject"
-              name="subject"
-              type="text"
-              maxlength="50"
-              placeholder="e.g. a brave little rabbit in the moonlight"
-              autocomplete="off"
-              required
-            />
-            <div class="char-row">
-              <span id="subject-error" class="error" hidden></span>
-              <span id="char-count" class="char-count">0 / 50</span>
-            </div>
-          </section>
+        <section class="card chat-card" aria-label="Story chat">
+          <div class="chat-messages" id="chat-messages" role="log" aria-live="polite"></div>
 
-          <section class="field">
-            <span class="label">Story mood</span>
-            <div class="choice-grid" role="radiogroup" aria-label="Story mood">
-              <label class="choice-card">
-                <input type="radio" name="storyType" value="happy" checked />
-                <span class="choice-icon" aria-hidden="true">☀️</span>
-                <span class="choice-title">Happy</span>
-                <span class="choice-desc">Warm, playful, and uplifting</span>
-              </label>
-              <label class="choice-card">
-                <input type="radio" name="storyType" value="scary" />
-                <span class="choice-icon" aria-hidden="true">🌙</span>
-                <span class="choice-title">Spooky</span>
-                <span class="choice-desc">Kid-friendly chills, no nightmares</span>
-              </label>
-            </div>
-          </section>
-
-          <section class="field">
-            <span class="label">Ending</span>
-            <div class="choice-grid" role="radiogroup" aria-label="Story ending">
-              <label class="choice-card">
-                <input type="radio" name="ending" value="good" checked />
-                <span class="choice-icon" aria-hidden="true">🌈</span>
-                <span class="choice-title">Good ending</span>
-                <span class="choice-desc">Problems solved, smiles all around</span>
-              </label>
-              <label class="choice-card">
-                <input type="radio" name="ending" value="bad" />
-                <span class="choice-icon" aria-hidden="true">🎭</span>
-                <span class="choice-title">Twist ending</span>
-                <span class="choice-desc">Bittersweet or mysterious finish</span>
-              </label>
-            </div>
-          </section>
-
-          <section class="field">
-            <span class="label">Length</span>
-            <div class="choice-grid choice-grid--compact" role="radiogroup" aria-label="Story length">
-              <label class="choice-card">
-                <input type="radio" name="length" value="short" checked />
-                <span class="choice-title">Short</span>
-                <span class="choice-desc">Up to 5 sentences</span>
-              </label>
-              <label class="choice-card">
-                <input type="radio" name="length" value="long" />
-                <span class="choice-title">Long</span>
-                <span class="choice-desc">Up to 7 sentences</span>
-              </label>
-            </div>
-          </section>
-
-          <button type="submit" class="submit-btn" id="submit-btn">
-            <span class="btn-label">Create my story</span>
-            <span class="btn-spinner" hidden aria-hidden="true"></span>
-          </button>
-        </form>
-
-        <aside class="card result-card" id="result-panel" hidden>
-          <div class="result-header">
-            <h2>Your story</h2>
-            <button type="button" class="ghost-btn" id="copy-btn" title="Copy story">Copy</button>
+          <div class="chat-input-area" id="chat-input-area">
+            <div class="quick-replies" id="quick-replies" hidden></div>
+            <form id="chat-form" class="chat-form" novalidate>
+              <input
+                id="chat-input"
+                type="text"
+                autocomplete="off"
+                placeholder="Type your answer…"
+                aria-label="Your message"
+              />
+              <button type="submit" class="send-btn" id="send-btn" aria-label="Send message">
+                <span class="send-icon" aria-hidden="true">➤</span>
+              </button>
+            </form>
           </div>
-          <dl class="meta" id="meta"></dl>
-          <article class="story-text" id="story-output"></article>
-          <p class="result-note" id="copy-feedback" hidden>Copied to clipboard!</p>
-        </aside>
+
+          <div class="chat-footer" id="chat-footer">
+            <button type="button" class="new-story-btn" id="new-story-btn">
+              Start new Story
+            </button>
+          </div>
+        </section>
 
         <div class="card error-card" id="error-panel" hidden>
           <h2>Something went wrong</h2>
           <p id="error-message"></p>
+          <button type="button" class="ghost-btn" id="retry-btn">Try again</button>
         </div>
       </main>
     </div>
