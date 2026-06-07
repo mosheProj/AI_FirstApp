@@ -70,9 +70,29 @@ npm run story
 | **Short output** | 5 sentences max |
 | **Long output** | 7 sentences max |
 
+## Web UI
+
+Start the server and open the Story Teller page in your browser:
+
+```bash
+cd story-agent
+npm run server
+```
+
+Then visit **http://127.0.0.1:3000/**
+
+The form collects the same inputs as the agent:
+
+| Field | Values |
+|-------|--------|
+| **Subject** | Free text, max 50 characters |
+| **Story mood** | Happy or Spooky (`storyType`: `happy` / `scary`) |
+| **Ending** | Good or Twist (`ending`: `good` / `bad`) |
+| **Length** | Short (5 sentences) or Long (7 sentences) |
+
 ## HTTP API
 
-Start the API server:
+Start the server (UI + API on the same port):
 
 ```bash
 cd story-agent
@@ -85,7 +105,8 @@ Default URL: `http://127.0.0.1:3000` (override with `PORT` and `HOST` env vars).
 
 | Method | Path | Description |
 |--------|------|-------------|
-| `GET` | `/` | API info and valid options |
+| `GET` | `/` | Story Teller web UI |
+| `GET` | `/api` | API info and valid options |
 | `GET` | `/health` | Health check |
 | `POST` | `/api/story` | Generate a story |
 
@@ -155,7 +176,7 @@ npm run story:server
 - **User prompt** — built from subject and selected options
 - **Agent** — `createAgent({ model, tools })` with `ChatOpenRouter` in `src/agent.js`
 - **CLI** — `src/cli.js` — interactive when run with no arguments
-- **API server** — `src/server.js` — exposes `writeStory` over HTTP
+- **API server** — `src/server.js` — exposes `writeStory` over HTTP and serves the web UI from `public/`
 
 ## Environment
 

@@ -1,4 +1,7 @@
 import http from 'node:http';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { writeStory } from './agent.js';
 import {
   DEFAULT_OPTIONS,
@@ -9,13 +12,33 @@ import {
   validateSubject,
 } from './prompts.js';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const PUBLIC_DIR = path.join(__dirname, '..', 'public');
+
 const PORT = parseInt(process.env.PORT ?? '3000', 10);
 const HOST = process.env.HOST ?? '127.0.0.1';
+
+const MIME_TYPES = {
+  '.html': 'text/html; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.js': 'text/javascript; charset=utf-8',
+  '.ico': 'image/x-icon',
+  '.png': 'image/png',
+  '.svg': 'image/svg+xml',
+};
 
 function sendJson(res, status, data) {
   const body = JSON.stringify(data);
   res.writeHead(status, {
     'Content-Type': 'application/json; charset=utf-8',
+    'Content-Length': Buffer.byteLength(body),
+  });
+  res.end(body);
+}
+
+function sendText(res, status, body, contentType = 'text/plain; charset=utf-8') {
+  res.writeHead(status, {
+    'Content-Type': contentType,
     'Content-Length': Buffer.byteLength(body),
   });
   res.end(body);
@@ -50,6 +73,28 @@ function isValidationError(message) {
   );
 }
 
+async function serveStatic(url, res) {
+  const safePath = path.normalize(url).replace(/^(\.\.[/\\])+/, '');
+  const filePath = path.join(PUBLIC_DIR, safePath === '/' ? 'index.html' : safePath);
+
+  if (!filePath.startsWith(PUBLIC_DIR)) {
+    sendJson(res, 403, { error: 'Forbidden' });
+    return true;
+  }
+
+  try {
+    const data = await fs.readFile(filePath);
+    const ext = path.extname(filePath);
+    sendText(res, 200, data, MIME_TYPES[ext] ?? 'application/octet-stream');
+    return true;
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      return false;
+    }
+    throw error;
+  }
+}
+
 async function handleRequest(req, res) {
   const url = req.url?.split('?')[0] ?? '/';
 
@@ -58,10 +103,11 @@ async function handleRequest(req, res) {
     return;
   }
 
-  if (req.method === 'GET' && url === '/') {
+  if (req.method === 'GET' && url === '/api') {
     sendJson(res, 200, {
       service: 'story-agent',
       endpoints: {
+        'GET /': 'Story Teller web UI',
         'GET /health': 'Health check',
         'POST /api/story': 'Generate a children\'s story',
       },
@@ -89,6 +135,12 @@ async function handleRequest(req, res) {
     return;
   }
 
+  if (req.method === 'GET') {
+    const staticPath = url === '/' ? '/index.html' : url;
+    const served = await serveStatic(staticPath, res);
+    if (served) return;
+  }
+
   sendJson(res, 404, { error: 'Not found' });
 }
 
@@ -100,7 +152,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, HOST, () => {
-  console.log(`Story agent API listening on http://${HOST}:${PORT}`);
-  console.log(`  POST http://${HOST}:${PORT}/api/story`);
-  console.log(`  GET  http://${HOST}:${PORT}/health`);
+  console.log(`Story agent listening on http://${HOST}:${PORT}`);
+  console.log(`  UI   http://${HOST}:${PORT}/`);
+  console.log(`  API  POST http://${HOST}:${PORT}/api/story`);
 });
