@@ -7,6 +7,8 @@
   "scripts": {
     "flight": "node src/cli.js",
     "start": "node src/cli.js",
+    "server": "node src/server.js",
+    "test:api": "node scripts/test-api.mjs",
     "test:tools": "node scripts/test-tools.mjs",
     "test:parser": "node scripts/test-parser.mjs"
   },

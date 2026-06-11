@@ -9,6 +9,7 @@ A LangChain + OpenRouter agent that searches the web for the **cheapest flight p
 - **REST Countries** for country names and flag emojis (one API call)
 - **Frankfurter** currency conversion (one API call for all prices)
 - CLI with interactive and one-shot modes
+- HTTP API server for programmatic access
 
 ## Setup
 
@@ -50,6 +51,75 @@ npm run flight -- --source "London" --destination "Paris" --start "2026-09-15" -
 | `--currency` | Target currency code | yes |
 | `--passengers` | Number of passengers | yes |
 | `--special-offers` | Check for special offers (`true`/`false`) | no (default: `true`) |
+
+## HTTP server
+
+Start the API server (default port **3001**):
+
+```bash
+npm run server
+```
+
+Endpoints:
+
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET` | `/health` | Health check |
+| `GET` | `/api` | API info and request schema |
+| `POST` | `/api/flights` | Search for cheapest flights |
+
+### Test with curl
+
+> **Windows note:** In PowerShell, `curl` is an alias for `Invoke-WebRequest` and does **not** support `-X`, `-H`, or `-d`. Use **`curl.exe`** instead, or the PowerShell examples below.
+
+Start the server first:
+
+```bash
+npm run server
+```
+
+Health check:
+
+```powershell
+curl.exe http://127.0.0.1:3001/health
+```
+
+API info:
+
+```powershell
+curl.exe http://127.0.0.1:3001/api
+```
+
+Search flights (recommended — uses a JSON file to avoid quoting issues):
+
+```powershell
+cd flight-finder
+curl.exe -X POST http://127.0.0.1:3001/api/flights -H "Content-Type: application/json" -d "@scripts/sample-request.json"
+```
+
+PowerShell native (no curl):
+
+```powershell
+$body = @{
+  source = "London"
+  destination = "Paris"
+  startDate = "2026-09-15"
+  endDate = "2026-09-22"
+  currency = "EUR"
+  passengers = "2"
+  checkSpecialOffers = $true
+} | ConvertTo-Json
+
+Invoke-RestMethod -Uri http://127.0.0.1:3001/api/flights -Method POST -ContentType "application/json" -Body $body
+```
+
+Or run the bundled test script (server must be running):
+
+```bash
+npm run test:api
+```
+
+Optional: set a custom port with `PORT=4000 npm run server`.
 
 ## Output
 
