@@ -1,0 +1,25 @@
+{
+  "name": "flight-finder-agent",
+  "version": "1.0.0",
+  "description": "LangChain agent that searches for the cheapest flight prices",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "flight": "node src/cli.js",
+    "start": "node src/cli.js",
+    "server": "node src/server.js",
+    "test:api": "node scripts/test-api.mjs",
+    "test:tools": "node scripts/test-tools.mjs",
+    "test:parser": "node scripts/test-parser.mjs"
+  },
+  "keywords": ["langchain", "openrouter", "tavily", "flights", "agent"],
+  "license": "MIT",
+  "dependencies": {
+    "@langchain/core": "^1.1.48",
+    "@langchain/openrouter": "^0.3.0",
+    "@langchain/tavily": "^1.2.0",
+    "dotenv": "^16.4.7",
+    "langchain": "^1.4.4",
+    "zod": "^3.24.2"
+  }
+}

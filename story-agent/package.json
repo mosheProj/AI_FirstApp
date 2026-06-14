@@ -6,7 +6,9 @@
   "main": "src/index.js",
   "scripts": {
     "story": "node src/cli.js",
-    "start": "node src/cli.js"
+    "start": "node src/cli.js",
+    "server": "node src/server.js",
+    "test:api": "node scripts/test-api.mjs"
   },
   "keywords": ["langchain", "openrouter", "children-stories", "agent"],
   "license": "MIT",

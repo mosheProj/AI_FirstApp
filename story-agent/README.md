@@ -70,6 +70,105 @@ npm run story
 | **Short output** | 5 sentences max |
 | **Long output** | 7 sentences max |
 
+## Web UI
+
+Start the server and open the Story Teller page in your browser:
+
+```bash
+cd story-agent
+npm run server
+```
+
+Then visit **http://127.0.0.1:3000/**
+
+The form collects the same inputs as the agent:
+
+| Field | Values |
+|-------|--------|
+| **Subject** | Free text, max 50 characters |
+| **Story mood** | Happy or Spooky (`storyType`: `happy` / `scary`) |
+| **Ending** | Good or Twist (`ending`: `good` / `bad`) |
+| **Length** | Short (5 sentences) or Long (7 sentences) |
+
+## HTTP API
+
+Start the server (UI + API on the same port):
+
+```bash
+cd story-agent
+npm run server
+```
+
+Default URL: `http://127.0.0.1:3000` (override with `PORT` and `HOST` env vars).
+
+### Endpoints
+
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET` | `/` | Story Teller web UI |
+| `GET` | `/api` | API info and valid options |
+| `GET` | `/health` | Health check |
+| `POST` | `/api/story` | Generate a story |
+
+### `POST /api/story`
+
+**Request body (JSON):**
+
+```json
+{
+  "subject": "a brave little rabbit",
+  "storyType": "happy",
+  "ending": "good",
+  "length": "short"
+}
+```
+
+| Field | Required | Values | Default |
+|-------|----------|--------|---------|
+| `subject` | yes | max 50 characters | — |
+| `storyType` | no | `happy`, `scary` | `happy` |
+| `ending` | no | `good`, `bad` | `good` |
+| `length` | no | `short`, `long` | `short` |
+
+**Response (200):**
+
+```json
+{
+  "subject": "a brave little rabbit",
+  "options": { "storyType": "happy", "ending": "good", "length": "short" },
+  "story": "Once upon a time..."
+}
+```
+
+**Example (PowerShell — Windows):**
+
+```powershell
+Invoke-RestMethod -Uri http://127.0.0.1:3000/api/story -Method POST `
+  -ContentType "application/json" `
+  -Body '{"subject":"a haunted treehouse","storyType":"scary","ending":"bad","length":"long"}'
+```
+
+**Example (curl — Git Bash / macOS / Linux):**
+
+```bash
+curl -X POST http://127.0.0.1:3000/api/story \
+  -H "Content-Type: application/json" \
+  -d '{"subject":"a haunted treehouse","storyType":"scary","ending":"bad","length":"long"}'
+```
+
+**Easiest test (any OS):** with the server running in another terminal:
+
+```bash
+cd story-agent
+npm run test:api
+```
+
+From the repo root:
+
+```bash
+npm run story:server
+```
+
 ## Architecture
 
 - **Interactive prompts** — `src/interactive.js` collects user input
@@ -77,9 +176,12 @@ npm run story
 - **User prompt** — built from subject and selected options
 - **Agent** — `createAgent({ model, tools })` with `ChatOpenRouter` in `src/agent.js`
 - **CLI** — `src/cli.js` — interactive when run with no arguments
+- **API server** — `src/server.js` — exposes `writeStory` over HTTP and serves the web UI from `public/`
 
 ## Environment
 
 | Variable | Description |
 |---|---|
 | `OPENROUTER_API_KEY` | Your OpenRouter API key |
+| `PORT` | API server port (default `3000`) |
+| `HOST` | API server host (default `127.0.0.1`) |

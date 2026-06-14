@@ -4,6 +4,7 @@ import { createAgent } from 'langchain';
 import {
   buildSystemPrompt,
   buildUserPrompt,
+  creativityToTemperature,
   limitToSentences,
   SENTENCE_LIMITS,
   validateOptions,
@@ -30,11 +31,11 @@ function getApiKey() {
   return key;
 }
 
-function createStoryAgent(systemPrompt) {
+function createStoryAgent(systemPrompt, temperature) {
   const model = new ChatOpenRouter({
     model: 'openai/gpt-5.4',
     apiKey: getApiKey(),
-    temperature: 0.8,
+    temperature,
     maxTokens: 768,
   });
 
@@ -71,7 +72,8 @@ export async function writeStory(subject, options = {}) {
   const userPrompt = buildUserPrompt(validatedSubject, validatedOptions);
   const maxSentences = SENTENCE_LIMITS[validatedOptions.length];
 
-  const agent = createStoryAgent(systemPrompt);
+  const temperature = creativityToTemperature(validatedOptions.creativity);
+  const agent = createStoryAgent(systemPrompt, temperature);
 
   const result = await agent.invoke({
     messages: [{ role: 'user', content: userPrompt }],

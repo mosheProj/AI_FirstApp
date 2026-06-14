@@ -4,11 +4,19 @@ export const SENTENCE_LIMITS = { short: 5, long: 7 };
 export const STORY_TYPES = ['happy', 'scary'];
 export const ENDINGS = ['good', 'bad'];
 export const LENGTHS = ['short', 'long'];
+export const CREATIVITY_LEVELS = ['low', 'medium', 'high'];
+
+export const CREATIVITY_TEMPERATURES = {
+  low: 0.4,
+  medium: 0.8,
+  high: 1.2,
+};
 
 export const DEFAULT_OPTIONS = {
   storyType: 'happy',
   ending: 'good',
   length: 'short',
+  creativity: 'medium',
 };
 
 export function buildSystemPrompt({ storyType, ending, length }) {
@@ -69,10 +77,15 @@ export function validateSubject(subject) {
   return trimmed;
 }
 
+export function creativityToTemperature(creativity) {
+  return CREATIVITY_TEMPERATURES[creativity];
+}
+
 export function validateOptions(options = {}) {
   const storyType = options.storyType ?? DEFAULT_OPTIONS.storyType;
   const ending = options.ending ?? DEFAULT_OPTIONS.ending;
   const length = options.length ?? DEFAULT_OPTIONS.length;
+  const creativity = options.creativity ?? DEFAULT_OPTIONS.creativity;
 
   if (!STORY_TYPES.includes(storyType)) {
     throw new Error(`storyType must be one of: ${STORY_TYPES.join(', ')}`);
@@ -83,8 +96,11 @@ export function validateOptions(options = {}) {
   if (!LENGTHS.includes(length)) {
     throw new Error(`length must be one of: ${LENGTHS.join(', ')}`);
   }
+  if (!CREATIVITY_LEVELS.includes(creativity)) {
+    throw new Error(`creativity must be one of: ${CREATIVITY_LEVELS.join(', ')}`);
+  }
 
-  return { storyType, ending, length };
+  return { storyType, ending, length, creativity };
 }
 
 export function limitToSentences(text, maxSentences) {

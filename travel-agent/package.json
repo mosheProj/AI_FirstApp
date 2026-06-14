@@ -1,0 +1,20 @@
+{
+  "name": "travel-deals-agent",
+  "version": "1.0.0",
+  "description": "LangChain agent that searches travel sites for hotel offers",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "travel": "node src/cli.js",
+    "start": "node src/cli.js"
+  },
+  "keywords": ["langchain", "openrouter", "travel", "agent"],
+  "license": "MIT",
+  "dependencies": {
+    "@langchain/core": "^1.1.48",
+    "@langchain/openrouter": "^0.3.0",
+    "dotenv": "^16.4.7",
+    "langchain": "^1.4.4",
+    "zod": "^3.24.2"
+  }
+}

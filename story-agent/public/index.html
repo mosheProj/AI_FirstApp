@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Story Teller</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div class="hero-badge">Ages 4–8</div>
+        <h1>Story Teller</h1>
+        <p class="hero-sub">
+          Chat with our story guide — answer a few questions and we’ll write a short children’s tale for you.
+        </p>
+      </header>
+
+      <main class="layout">
+        <section class="card chat-card" aria-label="Story chat">
+          <div class="chat-messages" id="chat-messages" role="log" aria-live="polite"></div>
+
+          <div class="chat-input-area" id="chat-input-area">
+            <div class="quick-replies" id="quick-replies" hidden></div>
+            <form id="chat-form" class="chat-form" novalidate>
+              <input
+                id="chat-input"
+                type="text"
+                autocomplete="off"
+                placeholder="Type your answer…"
+                aria-label="Your message"
+              />
+              <button type="submit" class="send-btn" id="send-btn" aria-label="Send message">
+                <span class="send-icon" aria-hidden="true">➤</span>
+              </button>
+            </form>
+          </div>
+
+          <div class="chat-footer" id="chat-footer">
+            <button type="button" class="new-story-btn" id="new-story-btn">
+              Start new Story
+            </button>
+          </div>
+        </section>
+
+        <div class="card error-card" id="error-panel" hidden>
+          <h2>Something went wrong</h2>
+          <p id="error-message"></p>
+          <button type="button" class="ghost-btn" id="retry-btn">Try again</button>
+        </div>
+      </main>
+    </div>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
