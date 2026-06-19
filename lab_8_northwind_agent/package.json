@@ -1,0 +1,23 @@
+{
+  "name": "lab-8-northwind-agent",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Dockerized LangChain DBA agent for Northwind SQL generation",
+  "scripts": {
+    "ingest": "node src/rag/ingest-schema.js",
+    "agent": "node src/agent/cli.js",
+    "server": "node src/server.js",
+    "spa:install": "npm --prefix spa install",
+    "spa": "npm --prefix spa run dev",
+    "spa:build": "npm --prefix spa run build"
+  },
+  "dependencies": {
+    "@langchain/cohere": "^1.0.0",
+    "@langchain/openrouter": "^0.3.0",
+    "dotenv": "^16.4.7",
+    "langchain": "^1.4.4",
+    "pg": "^8.16.3",
+    "zod": "^3.25.76"
+  }
+}

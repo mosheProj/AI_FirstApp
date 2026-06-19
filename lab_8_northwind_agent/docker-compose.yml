@@ -1,0 +1,44 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: lab8-northwind-postgres
+    environment:
+      POSTGRES_USER: "${POSTGRES_USER:-postgres}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:-Northwind_12345!}"
+      POSTGRES_DB: "${POSTGRES_DB:-northwind}"
+    ports:
+      - "${POSTGRES_PORT:-5433}:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+
+  northwind-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lab8-northwind-agent
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_HOST: "postgres"
+      DB_PORT: "5432"
+      DB_USER: "${POSTGRES_USER:-postgres}"
+      DB_PASSWORD: "${POSTGRES_PASSWORD:-Northwind_12345!}"
+      DB_NAME: "${POSTGRES_DB:-northwind}"
+      COHERE_API_KEY: "${COHERE_API_KEY}"
+      COHERE_EMBED_MODEL: "${COHERE_EMBED_MODEL:-embed-v4.0}"
+      OPENROUTER_API_KEY: "${OPENROUTER_API_KEY}"
+      OPENROUTER_MODEL: "${OPENROUTER_MODEL:-openai/gpt-5.4}"
+      RETRIEVER_K: "${RETRIEVER_K:-4}"
+      PORT: "3009"
+    ports:
+      - "${API_PORT:-3009}:3009"
+
+volumes:
+  postgres-data:
