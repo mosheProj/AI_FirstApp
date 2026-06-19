@@ -10,4 +10,4 @@ COPY sql ./sql
 
 ENV NODE_ENV=production
 
-CMD ["npm", "run", "agent", "--", "--help"]
+CMD ["npm", "run", "server"]

@@ -130,6 +130,65 @@ Interactive mode:
 docker compose run --rm northwind-agent npm run agent -- -i
 ```
 
+## Run The Agent API Server
+
+The server exposes the same agent over HTTP.
+
+Start the server in Docker:
+
+```powershell
+docker compose up -d northwind-agent
+```
+
+Default URL:
+
+```text
+http://localhost:3009
+```
+
+Health check:
+
+```powershell
+curl.exe http://localhost:3009/health
+```
+
+Generate and execute a SQL query:
+
+```powershell
+Invoke-RestMethod -Method POST "http://localhost:3009/query" `
+  -ContentType "application/json" `
+  -Body '{"question":"get all customers"}'
+```
+
+Or with curl using a JSON file:
+
+```powershell
+Set-Content -Path query-body.json -Value '{"question":"sales revenue by product"}' -NoNewline
+curl.exe -X POST "http://localhost:3009/query" -H "Content-Type: application/json" --data-binary "@query-body.json"
+```
+
+Expected response:
+
+```json
+{
+  "question": "get all customers",
+  "sql": "SELECT id, company, last_name, first_name, ... FROM customers",
+  "rowCount": 29,
+  "rows": [
+    {
+      "id": 1,
+      "company": "Company A",
+      "last_name": "Bedecs",
+      "first_name": "Anna"
+    }
+  ]
+}
+```
+
+The API only accepts Northwind database requests. It asks the agent to create a
+single read-only `SELECT` query, executes that query against Postgres, and
+returns the result set.
+
 ## How The Agent Works
 
 The agent has one tool:

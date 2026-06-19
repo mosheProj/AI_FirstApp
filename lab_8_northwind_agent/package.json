@@ -6,7 +6,8 @@
   "description": "Dockerized LangChain DBA agent for Northwind SQL generation",
   "scripts": {
     "ingest": "node src/rag/ingest-schema.js",
-    "agent": "node src/agent/cli.js"
+    "agent": "node src/agent/cli.js",
+    "server": "node src/server.js"
   },
   "dependencies": {
     "@langchain/cohere": "^1.0.0",

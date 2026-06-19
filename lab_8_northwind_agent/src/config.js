@@ -1,6 +1,10 @@
 import 'dotenv/config';
 
 export const config = {
+  server: {
+    port: Number.parseInt(process.env.PORT ?? '3009', 10),
+    host: process.env.HOST ?? '0.0.0.0',
+  },
   db: {
     host: process.env.DB_HOST ?? 'localhost',
     port: Number.parseInt(process.env.DB_PORT ?? process.env.POSTGRES_PORT ?? '5432', 10),

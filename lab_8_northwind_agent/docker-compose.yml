@@ -36,6 +36,9 @@ services:
       OPENROUTER_API_KEY: "${OPENROUTER_API_KEY}"
       OPENROUTER_MODEL: "${OPENROUTER_MODEL:-openai/gpt-5.4}"
       RETRIEVER_K: "${RETRIEVER_K:-4}"
+      PORT: "3009"
+    ports:
+      - "${API_PORT:-3009}:3009"
 
 volumes:
   postgres-data:
