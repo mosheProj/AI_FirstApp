@@ -15,6 +15,9 @@ function sendJson(res, status, payload) {
   res.writeHead(status, {
     'Content-Type': 'application/json; charset=utf-8',
     'Content-Length': Buffer.byteLength(body),
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
   });
   res.end(body);
 }
@@ -79,6 +82,16 @@ async function handleQuery(req, res) {
 
 async function handleRequest(req, res) {
   const requestUrl = new URL(req.url ?? '/', `http://${req.headers.host ?? 'localhost'}`);
+
+  if (req.method === 'OPTIONS') {
+    res.writeHead(204, {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    });
+    res.end();
+    return;
+  }
 
   if (req.method === 'GET' && requestUrl.pathname === '/health') {
     sendJson(res, 200, {

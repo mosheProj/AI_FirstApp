@@ -7,7 +7,10 @@
   "scripts": {
     "ingest": "node src/rag/ingest-schema.js",
     "agent": "node src/agent/cli.js",
-    "server": "node src/server.js"
+    "server": "node src/server.js",
+    "spa:install": "npm --prefix spa install",
+    "spa": "npm --prefix spa run dev",
+    "spa:build": "npm --prefix spa run build"
   },
   "dependencies": {
     "@langchain/cohere": "^1.0.0",

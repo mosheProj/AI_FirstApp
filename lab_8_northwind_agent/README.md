@@ -189,6 +189,53 @@ The API only accepts Northwind database requests. It asks the agent to create a
 single read-only `SELECT` query, executes that query against Postgres, and
 returns the result set.
 
+## Run The SPA Chatbot
+
+The SPA is a React + Vite chatbot UI that calls the agent API and can show the
+returned data as a table, pie chart, line chart, or bar chart.
+
+Install SPA dependencies:
+
+```powershell
+npm run spa:install
+```
+
+Start the API server first:
+
+```powershell
+docker compose up -d northwind-agent
+```
+
+Then start the SPA:
+
+```powershell
+npm run spa
+```
+
+Default SPA URL:
+
+```text
+http://localhost:5175
+```
+
+Example chart prompts:
+
+```text
+show all customer id 22 revenues for each product in a line chart
+sales revenue by product in a bar chart
+orders count by customer country in a pie chart
+```
+
+The SPA performs client-side validation before calling the server:
+
+- The request must be related to Northwind data.
+- The request must be read-only.
+- `INSERT`, `UPDATE`, `DELETE`, `DROP`, `ALTER`, `TRUNCATE`, and similar write
+  operations are blocked.
+
+The API still performs the important server-side guardrails and only executes a
+single generated `SELECT` statement.
+
 ## How The Agent Works
 
 The agent has one tool:
