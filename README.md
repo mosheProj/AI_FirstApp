@@ -35,6 +35,26 @@ npm run build
 npm run preview
 ```
 
+## Cursor GitHub MCP
+
+This repo includes a Cursor MCP config at `.cursor/mcp.json` with a GitHub MCP
+server named `github` for the current repository:
+
+```text
+https://github.com/mosheProj/AI_FirstApp
+```
+
+Set your GitHub personal access token locally before using the MCP. Do not
+commit the token.
+
+PowerShell:
+
+```powershell
+$env:GITHUB_PERSONAL_ACCESS_TOKEN="your_github_pat_here"
+```
+
+Then restart Cursor or reload MCP servers from Cursor settings.
+
 ## Tech Stack
 
 - React 19 + TypeScript
